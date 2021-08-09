@@ -1,12 +1,12 @@
 import React from "react";
 
-const login = (props) => {
+const Login = (props) => {
 
     const {
         email,
-        SetEmail,
+        setEmail,
         password,
-        SetPassword,
+        setPassword,
         handleLogin,
         handleSignup,
         hasAccount,
@@ -24,7 +24,7 @@ const login = (props) => {
                     autoFocus="autoFocus"
                     required="required"
                     value={email}
-                    onChange={e => SetEmail(e.target.value)}/>
+                    onChange={e => setEmail(e.target.value)}/>
                 <p className="errorMsg">{emailError}</p>
 
                 <label>Password</label>
@@ -32,30 +32,25 @@ const login = (props) => {
                     type="password"
                     required="required"
                     value={password}
-                    onChange={e => SetPassword(e.target.value)}/>
+                    onChange={e => setPassword(e.target.value)}/>
                 <p className="errorMsg">{passwordError}</p>
 
                 <div className="btnContainer">
-                    {hasAccount}{
-                        <> 
-                            <button onClick={handleLogin}>Sign in</button>
-                            <p>Don´t have an account ?
-                                <span onClick={() => setHasAccount(hasAccount)}>Sign up</span>
-                            </p>
+                    {hasAccount ? (
+                        <>
+                        <button onClick={handleLogin}>Sign in</button><p>Don´t have an account ? 
+                        <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
                         </>
-                    }
-                    : {
-                        <> < button onClick = {
-                            handleSignup
-                        } > Sign up</button> < p > Have an account
-                            ? <span onClick={() => setHasAccount(hasAccount)}>Sign in</span>
-                            </p>
+                    ) : (
+                        <>
+                        <button onClick={handleSignup}>Sign up</button><p> Have an account ?
+                        <span onClick={() => setHasAccount(!hasAccount)}>Sign in</span></p>
                         </>
-                    }
+                    )}
                 </div>
             </div>
         </section>
     )
 }
 
-export default login;
+export default Login;

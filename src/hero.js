@@ -1,8 +1,8 @@
 import React from "react";
 
-const hero = (handleLogout) => {
+const Hero = ({handleLogout}) => {
     return(
-        <section className="hero">
+        <section className="Hero">
             <nav>
                 <h2>welcome</h2>
                 <button onClick={handleLogout}>Logout</button>
@@ -11,4 +11,4 @@ const hero = (handleLogout) => {
         </section>)
 }
 
-export default hero;
+export default Hero;
